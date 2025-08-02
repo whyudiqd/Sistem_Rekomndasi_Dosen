@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login Mahasiswa</title>
-</head>
-<body>
-    <h1>Login Mahasiswa</h1>
+{% extends "base.html" %}
+
+{% block title %}Login Mahasiswa{% endblock %}
+
+{% block content %}
+    <h3 class="mb-3">Login Mahasiswa</h3>
+
     {% if error %}
-        <p style="color:red;">{{ error }}</p>
+        <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
-    <form method="POST">
-        <label>NIM:</label><br>
-        <input type="text" name="nim" required><br><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-</body>
-</html>
+
+    <form method="POST" class="col-md-6">
+        <div class="mb-3">
+            <label for="nim" class="form-label">NIM</label>
+            <input type="text" name="nim" id="nim" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id

@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rekomendasi Dosen Pembimbing</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Beranda - Rekomendasi Dosen{% endblock %}
+
+{% block content %}
     <h1>Sistem Rekomendasi Dosen Pembimbing Skripsi</h1>
 
     {% if nama_mahasiswa %}
         <p>Selamat datang, <strong>{{ nama_mahasiswa }}</strong> (Mahasiswa) | 
         <a href="/logout-mahasiswa">Logout</a></p>
-
     {% elif is_admin %}
         <p>Login sebagai <strong>Admin</strong> | 
         <a href="/logout">Logout</a></p>
-
     {% else %}
         <p><a href="/login-mahasiswa">Login Mahasiswa</a> | 
         <a href="/login">Login Admin</a></p>
@@ -22,13 +19,14 @@
     <hr>
 
     {% if nama_mahasiswa %}
-    <form method="POST" action="/rekomendasi">
-        <label>Masukkan Topik Skripsi Anda:</label><br>
-        <textarea name="topik" rows="4" cols="50" required></textarea><br><br>
-        <button type="submit">Cari Rekomendasi</button>
-    </form>
+        <form method="POST" action="/rekomendasi" class="mb-4">
+            <div class="mb-3">
+                <label for="topik" class="form-label">Masukkan Topik Skripsi Anda</label>
+                <textarea name="topik" id="topik" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Cari Rekomendasi</button>
+        </form>
     {% else %}
-        <p><i>Silakan login terlebih dahulu untuk menggunakan sistem.</i></p>
+        <div class="alert alert-info">Silakan login sebagai mahasiswa untuk menggunakan sistem.</div>
     {% endif %}
-</body>
-</html>
+{% endblock %}
