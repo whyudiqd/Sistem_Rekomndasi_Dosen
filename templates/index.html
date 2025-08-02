@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rekomendasi Dosen Pembimbing</title>
+</head>
+<body>
+    <h1>Sistem Rekomendasi Dosen Pembimbing Skripsi</h1>
+
+    {% if nama_mahasiswa %}
+        <p>Selamat datang, <strong>{{ nama_mahasiswa }}</strong> (Mahasiswa) | 
+        <a href="/logout-mahasiswa">Logout</a></p>
+
+    {% elif is_admin %}
+        <p>Login sebagai <strong>Admin</strong> | 
+        <a href="/logout">Logout</a></p>
+
+    {% else %}
+        <p><a href="/login-mahasiswa">Login Mahasiswa</a> | 
+        <a href="/login">Login Admin</a></p>
+    {% endif %}
+
+    <hr>
+
+    {% if nama_mahasiswa %}
+    <form method="POST" action="/rekomendasi">
+        <label>Masukkan Topik Skripsi Anda:</label><br>
+        <textarea name="topik" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Cari Rekomendasi</button>
+    </form>
+    {% else %}
+        <p><i>Silakan login terlebih dahulu untuk menggunakan sistem.</i></p>
+    {% endif %}
+</body>
+</html>

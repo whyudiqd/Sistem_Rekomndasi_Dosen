@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Riwayat Rekomendasi Mahasiswa</title>
+</head>
+<body>
+    <h1>Riwayat Rekomendasi Mahasiswa</h1>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Waktu</th>
+                <th>Topik Mahasiswa</th>
+                <th>Nama Dosen</th>
+                <th>Bidang</th>
+                <th>Skor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in data %}
+            <tr>
+                <td>{{ r.id }}</td>
+                <td>{{ r.waktu }}</td>
+                <td>{{ r.topik_mahasiswa }}</td>
+                <td>{{ r.nama_dosen }}</td>
+                <td>{{ r.bidang }}</td>
+                <td>{{ r.skor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/dosen">← Kembali ke Dashboard</a>
+</body>
+</html>

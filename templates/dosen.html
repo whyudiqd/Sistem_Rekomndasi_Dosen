@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Dosen</title>
+</head>
+<body>
+    <h1>Daftar Dosen</h1>
+    <p>
+    <a href="/upload">Upload CSV</a> |
+    <a href="/tambah-dosen">Tambah Dosen</a> |
+    <a href="/logout">Logout</a>
+</p>
+
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Bidang</th>
+                <th>Topik Riset</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.nama }}</td>
+                <td>{{ d.bidang }}</td>
+                <td>{{ d.topik_riset }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/">← Kembali ke Beranda</a>
+</body>
+</html>

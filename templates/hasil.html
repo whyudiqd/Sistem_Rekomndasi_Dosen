@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Rekomendasi</title>
+</head>
+<body>
+    <h1>Hasil Rekomendasi Dosen</h1>
+    {% if rekomendasi %}
+        <ul>
+        {% for d in rekomendasi %}
+            <li><strong>{{ d.nama }}</strong> ({{ d.bidang }})</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Tidak ada rekomendasi yang cocok.</p>
+    {% endif %}
+    <br>
+    <a href="/">← Kembali ke halaman awal</a>
+</body>
+</html>
+
