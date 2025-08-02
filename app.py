@@ -171,6 +171,12 @@ def login_mahasiswa():
     
     return render_template('login_mahasiswa.html')
 
+@app.route('/admin/mahasiswa')
+def halaman_mahasiswa():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    return render_template('mahasiswa.html')
+
 
 @app.route('/logout-mahasiswa')
 def logout_mahasiswa():
